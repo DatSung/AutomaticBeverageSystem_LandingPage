@@ -1,7 +1,7 @@
 import { e as createComponent, f as createAstro, m as maybeRenderHead, l as renderScript, r as renderTemplate, h as addAttribute, k as renderComponent } from '../chunks/astro/server_t8S0B2jb.mjs';
 import 'kleur/colors';
 import 'clsx';
-import { A as API_URL } from '../chunks/apiUrl_BbWCy-kb.mjs';
+import { A as API_URL } from '../chunks/apiUrl_BZuTOl_W.mjs';
 import { $ as $$Layout } from '../chunks/Layout_BMQZlUmf.mjs';
 export { renderers } from '../renderers.mjs';
 
