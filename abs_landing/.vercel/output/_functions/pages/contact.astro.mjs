@@ -1,7 +1,7 @@
 import { e as createComponent, f as createAstro, k as renderComponent, r as renderTemplate, m as maybeRenderHead, l as renderScript, h as addAttribute } from '../chunks/astro/server_t8S0B2jb.mjs';
 import 'kleur/colors';
 import { $ as $$Layout } from '../chunks/Layout_DKdcGuDi.mjs';
-import { A as API_URL } from '../chunks/apiUrl_BbWCy-kb.mjs';
+import { A as API_URL } from '../chunks/apiUrl_BZuTOl_W.mjs';
 export { renderers } from '../renderers.mjs';
 
 const $$Astro = createAstro();
