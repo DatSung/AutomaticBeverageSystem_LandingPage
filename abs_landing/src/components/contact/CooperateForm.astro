@@ -361,8 +361,6 @@ import { BRAND } from "@constants/brand";
 </section>
 
 <script type="module">
-  import { API_URL } from "/src/constants/apiUrl";
-
   const form = document.getElementById("contactForm");
   const submitBtn = document.getElementById("submitBtn");
   const errorBox = document.getElementById("formError");
@@ -486,11 +484,14 @@ import { BRAND } from "@constants/brand";
     `;
 
     try {
-      const res = await fetch(API_URL.cooperateRequest.post, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(payload),
-      });
+      const res = await fetch(
+        "https://autobrew.funnydev.id.vn/cooperate-request",
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(payload),
+        }
+      );
 
       const result = await res.json();
 
