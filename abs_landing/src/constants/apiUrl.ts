@@ -1,4 +1,4 @@
-const baseApiUrl = 'https://autobrew.funnydev.id.vn/api/v1'
+const baseApiUrl = 'https://localhost:30475/api/v1'
 
 export const API_URL = {
     benefits: {
@@ -10,5 +10,8 @@ export const API_URL = {
     kioskModels: {
         gets: baseApiUrl + '/landing/kiosk-models',
         get: (id: string) => baseApiUrl + '/landing/kiosk-models/' + id
+    },
+    cooperateRequest: {
+        post: baseApiUrl + '/cooperate-request'
     }
 }

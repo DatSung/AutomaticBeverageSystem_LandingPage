@@ -1,8 +1,91 @@
 ---
-import CommingSoon from "@components/CommingSoon.astro";
 import Layout from "@layouts/Layout.astro";
+import { API_URL } from "@constants/apiUrl";
+export const prerender = false
+
+let isSubmitted = false;
+let error = null;
+
+if (Astro.request.method === "POST") {
+  const body = await Astro.request.formData();
+
+  const formData = {
+    name: (body.get("name") as string) ?? "",
+    email: (body.get("email") as string) ?? "",
+    phone: (body.get("phone") as string) ?? "",
+    time: (body.get("time") as string) ?? "",
+    content: (body.get("content") as string) ?? "",
+  };
+
+  try {
+    const res = await fetch(API_URL.cooperateRequest.post, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(formData),
+    });
+
+    const result = await res.json();
+    isSubmitted = result.isSuccess;
+    if (!result.isSuccess) error = result.message;
+  } catch (e) {
+    error = "Có lỗi xảy ra khi gửi yêu cầu. Vui lòng thử lại sau.";
+  }
+}
 ---
 
 <Layout>
-  <CommingSoon />
+  <section class="max-w-2xl mx-auto px-4 py-12">
+    <h2 class="text-3xl font-bold mb-6">Liên hệ hợp tác</h2>
+
+    {
+      isSubmitted ? (
+        <p class="text-green-600">
+          Gửi yêu cầu thành công! Chúng tôi sẽ liên hệ bạn sớm.
+        </p>
+      ) : (
+        <form method="POST" class="space-y-4">
+          {error && <p class="text-red-500">{error}</p>}
+
+          <input
+            name="name"
+            required
+            placeholder="Tên của bạn"
+            class="w-full border rounded p-2"
+          />
+          <input
+            name="email"
+            required
+            type="email"
+            placeholder="Email"
+            class="w-full border rounded p-2"
+          />
+          <input
+            name="phone"
+            required
+            placeholder="Số điện thoại"
+            class="w-full border rounded p-2"
+          />
+          <input
+            name="time"
+            required
+            placeholder="Khung giờ tư vấn mong muốn"
+            class="w-full border rounded p-2"
+          />
+          <textarea
+            name="content"
+            rows="4"
+            placeholder="Nội dung chi tiết"
+            class="w-full border rounded p-2"
+          />
+
+          <button
+            type="submit"
+            class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700"
+          >
+            Gửi yêu cầu
+          </button>
+        </form>
+      )
+    }
+  </section>
 </Layout>
