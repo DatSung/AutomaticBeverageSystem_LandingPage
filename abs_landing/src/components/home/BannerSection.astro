@@ -1,0 +1,239 @@
+---
+const slides = [
+  {
+    image: "https://azopdlowqypwkgsxfsou.supabase.co/storage/v1/object/public/images/landing/banners/z7002785592507_8c025346a2fd308c245304e8d075e3fa.jpg",
+    title: "Giải pháp cà phê tự động",
+    description: "Dành cho văn phòng hiện đại, tiện lợi và chuyên nghiệp.",
+  },
+  {
+    image: "https://azopdlowqypwkgsxfsou.supabase.co/storage/v1/object/public/images/landing/banners/z7002785592507_8c025346a2fd308c245304e8d075e3fa.jpg",
+    title: "Máy pha cà phê thông minh",
+    description: "Hoạt động 24/7, không cần nhân viên trực.",
+  },
+  {
+    image: "https://azopdlowqypwkgsxfsou.supabase.co/storage/v1/object/public/images/landing/banners/z7002785592507_8c025346a2fd308c245304e8d075e3fa.jpg",
+    title: "Kết nối với công nghệ",
+    description: "Hệ sinh thái điều khiển qua điện thoại, web, và IoT.",
+  },
+];
+---
+
+<div class="relative w-full h-[600px] overflow-hidden shadow-2xl group">
+  <!-- Background gradient overlay -->
+  <div class="absolute inset-0 bg-gradient-to-br from-cyan-900/20 via-transparent to-blue-900/20 z-[5] pointer-events-none"></div>
+  
+  <div id="slideshow" class="relative w-full h-full">
+    {
+      slides.map((slide, index) => (
+        <div
+          class="absolute inset-0 w-full h-full transition-all duration-1000 ease-in-out opacity-0 scale-105"
+          data-slide
+          style={`background-image: url(${slide.image}); background-size: cover; background-position: center;`}
+        >
+          <!-- Enhanced gradient overlay -->
+          <div class="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-slate-900/40 to-transparent"></div>
+          <div class="absolute inset-0 bg-gradient-to-r from-cyan-900/30 to-blue-900/30"></div>
+          
+          <!-- Content container -->
+          <div class="relative z-10 w-full h-full flex flex-col items-center justify-center text-white px-6 text-center">
+            <!-- Title with gradient text -->
+            <div class="mb-6 space-y-4">
+              <h2 class="text-2xl md:text-6xl font-bold leading-tight">
+                <span class="bg-gradient-to-r from-cyan-300 via-white to-blue-300 bg-clip-text text-transparent drop-shadow-lg">
+                  {slide.title}
+                </span>
+              </h2>
+              
+              <!-- Decorative line -->
+              <div class="flex items-center justify-center space-x-2">
+                <div class="w-8 h-0.5 bg-gradient-to-r from-transparent to-cyan-400"></div>
+                <div class="w-2 h-2 bg-cyan-400 rounded-full"></div>
+                <div class="w-16 h-0.5 bg-gradient-to-r from-cyan-400 to-blue-400"></div>
+                <div class="w-2 h-2 bg-blue-400 rounded-full"></div>
+                <div class="w-8 h-0.5 bg-gradient-to-r from-blue-400 to-transparent"></div>
+              </div>
+            </div>
+            
+            <!-- Description with backdrop -->
+            <div class="max-w-2xl bg-white/10 backdrop-blur-sm border border-white/20 rounded-2xl px-6 py-4 shadow-xl">
+              <p class="md:text-xl font-medium text-cyan-50 leading-relaxed">
+                {slide.description}
+              </p>
+            </div>
+          </div>
+        </div>
+      ))
+    }
+  </div>
+
+  <!-- Enhanced Navigation Buttons -->
+  <button
+    id="prevBtn"
+    class="absolute cursor-pointer top-1/2 -translate-y-1/2 left-6 bg-gradient-to-r from-cyan-500/80 to-blue-500/80 backdrop-blur-sm hover:from-cyan-400 hover:to-blue-400 text-white p-4 rounded-full z-20 opacity-0 group-hover:opacity-100 transition-all duration-300 hover:scale-110 shadow-lg border border-white/20"
+    aria-label="Previous"
+  >
+    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M15 19l-7-7 7-7"/>
+    </svg>
+  </button>
+
+  <button
+    id="nextBtn"
+    class="absolute cursor-pointer top-1/2 -translate-y-1/2 right-6 bg-gradient-to-r from-cyan-500/80 to-blue-500/80 backdrop-blur-sm hover:from-cyan-400 hover:to-blue-400 text-white p-4 rounded-full z-20 opacity-0 group-hover:opacity-100 transition-all duration-300 hover:scale-110 shadow-lg border border-white/20"
+    aria-label="Next"
+  >
+    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7"/>
+    </svg>
+  </button>
+
+  <!-- Slide Indicators -->
+  <div class="absolute bottom-6 left-1/2 -translate-x-1/2 flex space-x-3 z-20">
+    {
+      slides.map((_, index) => (
+        <button
+          class="slide-indicator w-3 h-3 rounded-full transition-all duration-300 border-2 border-white/40"
+          data-slide-index={index}
+          aria-label={`Go to slide ${index + 1}`}
+        >
+          <div class="w-full h-full rounded-full bg-gradient-to-r from-cyan-400 to-blue-400 scale-0 transition-transform duration-300"></div>
+        </button>
+      ))
+    }
+  </div>
+
+  <!-- Progress Bar -->
+  <div class="absolute bottom-0 left-0 w-full h-1 bg-white/20 z-20">
+    <div id="progressBar" class="h-full bg-gradient-to-r from-cyan-400 to-blue-400 transition-all duration-300 ease-linear" style="width: 0%"></div>
+  </div>
+</div>
+
+<script>
+  const slides = Array.from(document.querySelectorAll("[data-slide]"));
+  const indicators = Array.from(document.querySelectorAll(".slide-indicator"));
+  const nextBtn = document.getElementById("nextBtn")!;
+  const prevBtn = document.getElementById("prevBtn")!;
+  const progressBar = document.getElementById("progressBar")!;
+  let current = 0;
+  let progressInterval: ReturnType<typeof setInterval>;
+
+  function updateIndicators(activeIndex: number) {
+    indicators.forEach((indicator, i) => {
+      const dot = indicator.querySelector("div")!;
+      if (i === activeIndex) {
+        indicator.classList.add("border-cyan-400");
+        indicator.classList.remove("border-white/40");
+        dot.classList.remove("scale-0");
+        dot.classList.add("scale-100");
+      } else {
+        indicator.classList.remove("border-cyan-400");
+        indicator.classList.add("border-white/40");
+        dot.classList.add("scale-0");
+        dot.classList.remove("scale-100");
+      }
+    });
+  }
+
+  function showSlide(index: number) {
+    slides.forEach((slide, i) => {
+      slide.classList.remove("opacity-100", "scale-100");
+      slide.classList.add("opacity-0", "scale-105");
+      if (i === index) {
+        setTimeout(() => {
+          slide.classList.remove("opacity-0", "scale-105");
+          slide.classList.add("opacity-100", "scale-100");
+        }, 50);
+      }
+    });
+    updateIndicators(index);
+  }
+
+  function startProgress() {
+    let progress = 0;
+    progressBar.style.width = "0%";
+    
+    progressInterval = setInterval(() => {
+      progress += 2; // 2% every 100ms = 5 seconds total
+      progressBar.style.width = progress + "%";
+      
+      if (progress >= 100) {
+        clearInterval(progressInterval);
+      }
+    }, 100);
+  }
+
+  function resetProgress() {
+    clearInterval(progressInterval);
+    startProgress();
+  }
+
+  function nextSlide() {
+    current = (current + 1) % slides.length;
+    showSlide(current);
+    resetProgress();
+  }
+
+  function prevSlide() {
+    current = (current - 1 + slides.length) % slides.length;
+    showSlide(current);
+    resetProgress();
+  }
+
+  function goToSlide(index: number) {
+    current = index;
+    showSlide(current);
+    resetInterval();
+  }
+
+  // Initialize
+  showSlide(current);
+  startProgress();
+
+  let interval = setInterval(nextSlide, 5000);
+
+  function resetInterval() {
+    clearInterval(interval);
+    resetProgress();
+    interval = setInterval(nextSlide, 5000);
+  }
+
+  // Event listeners
+  nextBtn.addEventListener("click", () => {
+    nextSlide();
+    resetInterval();
+  });
+
+  prevBtn.addEventListener("click", () => {
+    prevSlide();
+    resetInterval();
+  });
+
+  // Indicator click events
+  indicators.forEach((indicator, index) => {
+    indicator.addEventListener("click", () => {
+      goToSlide(index);
+    });
+  });
+
+  // Pause on hover
+  const slideshow = document.getElementById("slideshow")!;
+  slideshow.addEventListener("mouseenter", () => {
+    clearInterval(interval);
+    clearInterval(progressInterval);
+  });
+
+  slideshow.addEventListener("mouseleave", () => {
+    resetInterval();
+  });
+
+  // Keyboard navigation
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "ArrowLeft") {
+      prevSlide();
+      resetInterval();
+    } else if (e.key === "ArrowRight") {
+      nextSlide();
+      resetInterval();
+    }
+  });
+</script>

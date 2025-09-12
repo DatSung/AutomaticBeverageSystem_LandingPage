@@ -1,0 +1,49 @@
+---
+import { ROUTES } from '@constants/routes.ts'
+
+const currentPath = Astro.url.pathname;
+
+function isActive(href: string, currentPath: string): boolean {
+  if (href === '/') {
+    return currentPath === '/';
+  }
+  return currentPath.startsWith(href);
+}
+---
+
+<nav class="">
+  <ul class="flex-col flex md:flex-row gap-6 md:gap-4 text-sm font-semibold">
+    {ROUTES.map(({ href, label }: { href: string; label: string }) => (
+      <li class="relative group">
+        <a 
+          href={href}
+          class={`
+            relative px-3 py-2 rounded-lg transition-all duration-300 ease-in-out
+            transform hover:-translate-y-0.5 hover:shadow-md
+            ${isActive(href, currentPath) 
+              ? 'text-[#68E0DF] bg-blue-50' 
+              : 'text-gray-700 hover:text-[#68E0DF] hover:bg-blue-50/50'
+            }
+          `}
+        >
+          {label}
+          
+          <!-- Active indicator -->
+          {isActive(href, currentPath) && (
+            <span class="hidden md:block absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-6 h-0.5 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-full"></span>
+          )}
+          
+          <!-- Hover indicator -->
+          <span class={`
+            hidden md:block
+            absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-0 h-0.5 
+            bg-gradient-to-r from-blue-400 to-cyan-400 rounded-full
+            transition-all duration-300 ease-in-out
+            group-hover:w-6
+            ${isActive(href, currentPath) ? 'hidden' : ''}
+          `}></span>
+        </a>
+      </li>
+    ))}
+  </ul>
+</nav>

@@ -1,0 +1,63 @@
+---
+import Navigation from "@components/header/Navigation.astro";
+import Contact from "@components/header/Contact.astro";
+import { BRAND } from "@constants/brand.ts";
+---
+
+<header class="bg-white shadow-sm sticky top-0 z-50 w-full">
+  <div class="max-w-7xl mx-auto px-4 h-16 flex items-center justify-between">
+    <!-- Logo -->
+    <a href="/" class="flex items-center gap-2">
+      <p class="font-bold text-3xl text-[#68E0DF]">{BRAND.name}</p>
+    </a>
+
+    <!-- Desktop Navigation -->
+    <nav class="hidden md:block">
+      <Navigation />
+    </nav>
+
+    <!-- Desktop Contact -->
+    <div class="">
+      <Contact />
+    </div>
+
+    <!-- Mobile Hamburger Button -->
+    <button
+      id="mobile-menu-button"
+      class="md:hidden flex items-center justify-center w-8 h-8"
+      aria-label="Toggle menu"
+    >
+      <svg
+        class="w-6 h-6 text-gray-700"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        viewBox="0 0 24 24"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          d="M4 6h16M4 12h16M4 18h16"></path>
+      </svg>
+    </button>
+  </div>
+
+  <!-- Mobile Menu Content -->
+  <div
+    id="mobile-menu"
+    class="md:hidden hidden px-4 py-4 bg-white border-t border-gray-200 transition-all duration-300"
+  >
+    <div class="flex-col ga">
+      <Navigation />
+    </div>
+  </div>
+</header>
+
+<script>
+  const button = document.getElementById("mobile-menu-button");
+  const menu = document.getElementById("mobile-menu");
+
+  button?.addEventListener("click", () => {
+    menu?.classList.toggle("hidden");
+  });
+</script>

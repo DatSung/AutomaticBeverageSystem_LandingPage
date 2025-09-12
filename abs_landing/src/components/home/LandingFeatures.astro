@@ -1,0 +1,117 @@
+---
+import { API_URL } from '@constants/apiUrl'
+
+interface Feature {
+  featureId: string;
+  featureTitle: string;
+  featureDescription: string;
+  iconUrl: string;
+  sortOrder: number;
+  isPublicVisible: boolean;
+}
+
+const res = await fetch(API_URL.features.gets);
+const json = await res.json();
+const features: Feature[] = json.response.items ?? [];
+---
+
+<section class="relative py-20 px-4 text-center bg-gradient-to-br from-slate-50 via-white to-blue-50 overflow-hidden">
+  <!-- Background decorations -->
+  <div class="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(59,130,246,0.05),transparent_50%)]"></div>
+  <div class="absolute inset-0 bg-[radial-gradient(circle_at_70%_80%,rgba(16,185,129,0.05),transparent_50%)]"></div>
+  
+  <!-- Content -->
+  <div class="relative z-10">
+    <!-- Header -->
+    <div class="max-w-4xl mx-auto mb-16">
+      <div class="inline-flex items-center px-4 py-2 bg-blue-100 text-blue-800 rounded-full text-sm font-medium mb-6 shadow-sm">
+        <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20">
+          <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+        </svg>
+        Tính năng nổi bật
+      </div>
+      
+      <h2 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-gray-900 leading-tight">
+        Máy bán hàng thông minh 
+        <span class="bg-gradient-to-r from-blue-600 to-emerald-600 bg-clip-text text-transparent">ABS</span>
+      </h2>
+      
+      <p class="text-xl md:text-2xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+        Hệ thống quản trị tối ưu với công nghệ hiện đại
+      </p>
+    </div>
+
+    <!-- Features Grid -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8 max-w-7xl mx-auto">
+      {
+        features.map((feature, index) => (
+          <div 
+            class="group relative bg-white rounded-3xl p-8 shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 border border-gray-100 overflow-hidden"
+            style={`animation-delay: ${index * 100}ms`}
+          >
+            <!-- Card background gradient on hover -->
+            <div class="absolute inset-0 bg-gradient-to-br from-blue-50 to-emerald-50 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+            
+            <!-- Content -->
+            <div class="relative z-10">
+              <!-- Icon container -->
+              <div class="relative mb-6">
+                <div class="w-24 h-24 mx-auto bg-gradient-to-br from-blue-100 to-emerald-100 rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300 shadow-sm">
+                  <img
+                    src={feature.iconUrl}
+                    alt={feature.featureTitle}
+                    class="w-12 h-12 object-contain"
+                    loading="lazy"
+                  />
+                </div>
+                
+                <!-- Floating dots decoration -->
+                <div class="absolute -top-2 -right-2 w-3 h-3 bg-blue-400 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                <div class="absolute -bottom-2 -left-2 w-2 h-2 bg-emerald-400 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
+              </div>
+
+              <!-- Title -->
+              <h3 class="text-lg font-bold text-gray-900 mb-3 group-hover:text-blue-700 transition-colors duration-300 leading-snug">
+                {feature.featureTitle}
+              </h3>
+
+              <!-- Description -->
+              <p class="text-gray-600 text-sm leading-relaxed group-hover:text-gray-700 transition-colors duration-300">
+                {feature.featureDescription}
+              </p>
+            </div>
+
+            <!-- Subtle border animation -->
+            <div class="absolute inset-0 rounded-3xl border-2 border-transparent bg-gradient-to-r from-blue-200 via-emerald-200 to-blue-200 opacity-0 group-hover:opacity-100 transition-opacity duration-500 -z-10"></div>
+            <div class="absolute inset-[2px] bg-white rounded-3xl -z-10"></div>
+          </div>
+        ))
+      }
+    </div>
+
+    <!-- Call to action -->
+    <div class="mt-16">
+      <a href="/about" class="inline-flex items-center px-8 py-4 bg-gradient-to-r from-blue-600 to-emerald-600 text-white font-semibold rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 group">
+        <span>Khám phá thêm</span>
+        <svg class="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+        </svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+<style>
+  .group {
+    animation: fadeInUp 0.6s ease-out forwards;
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  
+  @keyframes fadeInUp {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+</style>

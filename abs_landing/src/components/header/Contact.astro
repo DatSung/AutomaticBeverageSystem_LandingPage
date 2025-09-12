@@ -1,0 +1,19 @@
+---
+import { BRAND } from "@constants/brand.ts";
+import ButtonLink from "@components/base/ButtonLink.astro";
+---
+
+<div class="flex items-center gap-4 text-sm font-medium">
+  <div class="flex items-center gap-2">
+    <img
+      src="https://cdn-icons-png.flaticon.com/512/159/159832.png"
+      alt="Hotline"
+      class="w-4 h-4"
+    />
+    <span
+      >Hotline: <span class="text-[#68E0DF] font-semibold">{BRAND.contactPhone}</span
+      ></span
+    >
+  </div>
+  <ButtonLink href="/contact" title="Liên hệ" />
+</div>

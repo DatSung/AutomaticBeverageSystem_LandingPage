@@ -1,0 +1,179 @@
+<div
+  class="min-h-screen bg-gradient-to-br from-cyan-50 via-blue-50 to-slate-50 flex items-center justify-center p-4"
+>
+  <div class="relative max-w-4xl mx-auto">
+    <!-- Background Elements -->
+    <div
+      class="absolute inset-0 bg-gradient-to-r from-cyan-400/10 to-blue-400/10 rounded-3xl blur-3xl"
+    >
+    </div>
+    <div
+      class="absolute -top-20 -left-20 w-40 h-40 bg-cyan-300/20 rounded-full blur-2xl animate-pulse"
+    >
+    </div>
+    <div
+      class="absolute -bottom-20 -right-20 w-60 h-60 bg-blue-300/20 rounded-full blur-2xl animate-pulse"
+      style="animation-delay: 1s;"
+    >
+    </div>
+
+    <!-- Main Content -->
+    <div
+      class="relative bg-white/80 backdrop-blur-sm rounded-3xl border border-cyan-100 shadow-2xl overflow-hidden"
+    >
+      <!-- Header Section -->
+      <div class="text-center p-12 space-y-8">
+        <!-- Logo/Icon -->
+        <div class="relative inline-block">
+          <div
+            class="absolute inset-0 bg-gradient-to-r from-cyan-400 to-blue-400 rounded-3xl blur-lg opacity-30 animate-pulse"
+          >
+          </div>
+          <div
+            class="relative bg-gradient-to-r from-cyan-500 to-blue-500 w-20 h-20 rounded-3xl flex items-center justify-center shadow-xl"
+          >
+            <svg
+              class="w-10 h-10 text-white"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+            </svg>
+          </div>
+        </div>
+
+        <!-- Title -->
+        <div class="space-y-4">
+          <h1
+            class="text-5xl md:text-7xl font-bold bg-gradient-to-r from-cyan-600 via-blue-600 to-cyan-700 bg-clip-text text-transparent leading-tight"
+          >
+            Sắp Ra Mắt
+          </h1>
+          <div class="flex items-center justify-center space-x-2">
+            <div
+              class="w-8 h-0.5 bg-gradient-to-r from-transparent to-cyan-400"
+            >
+            </div>
+            <div class="w-2 h-2 bg-cyan-400 rounded-full animate-pulse"></div>
+            <div class="w-16 h-0.5 bg-gradient-to-r from-cyan-400 to-blue-400">
+            </div>
+            <div
+              class="w-2 h-2 bg-blue-400 rounded-full animate-pulse"
+              style="animation-delay: 0.5s;"
+            >
+            </div>
+            <div
+              class="w-8 h-0.5 bg-gradient-to-r from-blue-400 to-transparent"
+            >
+            </div>
+          </div>
+        </div>
+
+        <!-- Description -->
+        <div class="max-w-2xl mx-auto space-y-4">
+          <p
+            class="text-xl md:text-2xl text-slate-700 font-medium leading-relaxed"
+          >
+            Chúng tôi đang phát triển điều gì đó
+            <span
+              class="bg-gradient-to-r from-cyan-600 to-blue-600 bg-clip-text text-transparent font-bold"
+            >
+              thật đặc biệt
+            </span>
+          </p>
+          <p class="text-lg text-slate-600 leading-relaxed">
+            Hệ thống cà phê tự động thông minh của AICOfi sẽ sớm có mặt để mang
+            đến trải nghiệm hoàn toàn mới cho không gian làm việc của bạn.
+          </p>
+        </div>
+      </div>
+
+      <!-- Countdown Timer -->
+      <div
+        class="bg-gradient-to-r from-cyan-50 to-blue-50 border-t border-cyan-100 p-8"
+      >
+        <div class="text-center space-y-6">
+          <h3 class="text-2xl font-bold text-slate-800">Thời gian còn lại</h3>
+
+          <div
+            id="countdown"
+            class="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-2xl mx-auto"
+          >
+            <!-- Days -->
+            <div
+              class="group bg-white/80 backdrop-blur-sm p-4 rounded-2xl border border-cyan-200 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1"
+            >
+              <div
+                class="text-3xl md:text-4xl font-bold bg-gradient-to-r from-cyan-600 to-blue-600 bg-clip-text text-transparent"
+                id="days"
+              >
+                --
+              </div>
+              <div
+                class="text-sm font-medium text-slate-600 uppercase tracking-wide"
+              >
+                Ngày
+              </div>
+            </div>
+
+            <!-- Hours -->
+            <div
+              class="group bg-white/80 backdrop-blur-sm p-4 rounded-2xl border border-blue-200 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1"
+            >
+              <div
+                class="text-3xl md:text-4xl font-bold bg-gradient-to-r from-blue-600 to-cyan-600 bg-clip-text text-transparent"
+                id="hours"
+              >
+                --
+              </div>
+              <div
+                class="text-sm font-medium text-slate-600 uppercase tracking-wide"
+              >
+                Giờ
+              </div>
+            </div>
+
+            <!-- Minutes -->
+            <div
+              class="group bg-white/80 backdrop-blur-sm p-4 rounded-2xl border border-cyan-200 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1"
+            >
+              <div
+                class="text-3xl md:text-4xl font-bold bg-gradient-to-r from-cyan-600 to-blue-600 bg-clip-text text-transparent"
+                id="minutes"
+              >
+                --
+              </div>
+              <div
+                class="text-sm font-medium text-slate-600 uppercase tracking-wide"
+              >
+                Phút
+              </div>
+            </div>
+
+            <!-- Seconds -->
+            <div
+              class="group bg-white/80 backdrop-blur-sm p-4 rounded-2xl border border-blue-200 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1"
+            >
+              <div
+                class="text-3xl md:text-4xl font-bold bg-gradient-to-r from-blue-600 to-cyan-600 bg-clip-text text-transparent"
+                id="seconds"
+              >
+                --
+              </div>
+              <div
+                class="text-sm font-medium text-slate-600 uppercase tracking-wide"
+              >
+                Giây
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
