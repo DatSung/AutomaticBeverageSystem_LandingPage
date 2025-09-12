@@ -33,7 +33,7 @@ const $$Navigation = createComponent(($$result, $$props, $$slots) => {
             group-hover:w-6
             ${isActive(href, currentPath) ? "hidden" : ""}
           `, "class")}></span> </a> </li>`)} </ul> </nav>`;
-}, "C:/Hakathons/AutomaticBeverageSystem_LandingPage/abs_landing/src/components/header/Navigation.astro", void 0);
+}, "D:/Hackathon_Journey/AutomaticBeverageSystem_LandingPage/abs_landing/src/components/header/Navigation.astro", void 0);
 
 const BRAND = {
   name: "CupX",
@@ -48,15 +48,15 @@ const $$ButtonLink = createComponent(($$result, $$props, $$slots) => {
   Astro2.self = $$ButtonLink;
   const { href, title } = Astro2.props;
   return renderTemplate`${maybeRenderHead()}<a${addAttribute(href, "href")} class="bg-[#68E0DF] hover:bg-[#3fbab4] text-white px-4 py-1 rounded transition"> ${title} </a>`;
-}, "C:/Hakathons/AutomaticBeverageSystem_LandingPage/abs_landing/src/components/base/ButtonLink.astro", void 0);
+}, "D:/Hackathon_Journey/AutomaticBeverageSystem_LandingPage/abs_landing/src/components/base/ButtonLink.astro", void 0);
 
 const $$Contact = createComponent(($$result, $$props, $$slots) => {
   return renderTemplate`${maybeRenderHead()}<div class="flex items-center gap-4 text-sm font-medium"> <div class="flex items-center gap-2"> <img src="https://cdn-icons-png.flaticon.com/512/159/159832.png" alt="Hotline" class="w-4 h-4"> <span>Hotline: <span class="text-[#68E0DF] font-semibold">${BRAND.contactPhone}</span></span> </div> ${renderComponent($$result, "ButtonLink", $$ButtonLink, { "href": "/contact", "title": "Li\xEAn h\u1EC7" })} </div>`;
-}, "C:/Hakathons/AutomaticBeverageSystem_LandingPage/abs_landing/src/components/header/Contact.astro", void 0);
+}, "D:/Hackathon_Journey/AutomaticBeverageSystem_LandingPage/abs_landing/src/components/header/Contact.astro", void 0);
 
 const $$Header = createComponent(($$result, $$props, $$slots) => {
-  return renderTemplate`${maybeRenderHead()}<header class="bg-white shadow-sm sticky top-0 z-50 w-full"> <div class="max-w-7xl mx-auto px-4 h-16 flex items-center justify-between"> <!-- Logo --> <a href="/" class="flex items-center gap-2"> <p class="font-bold text-3xl text-[#68E0DF]">${BRAND.name}</p> </a> <!-- Desktop Navigation --> <nav class="hidden md:block"> ${renderComponent($$result, "Navigation", $$Navigation, {})} </nav> <!-- Desktop Contact --> <div class=""> ${renderComponent($$result, "Contact", $$Contact, {})} </div> <!-- Mobile Hamburger Button --> <button id="mobile-menu-button" class="md:hidden flex items-center justify-center w-8 h-8" aria-label="Toggle menu"> <svg class="w-6 h-6 text-gray-700" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"> <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"></path> </svg> </button> </div> <!-- Mobile Menu Content --> <div id="mobile-menu" class="md:hidden hidden px-4 py-4 bg-white border-t border-gray-200 transition-all duration-300"> <div class="flex-col ga"> ${renderComponent($$result, "Navigation", $$Navigation, {})} </div> </div> </header> ${renderScript($$result, "C:/Hakathons/AutomaticBeverageSystem_LandingPage/abs_landing/src/layouts/base/Header.astro?astro&type=script&index=0&lang.ts")}`;
-}, "C:/Hakathons/AutomaticBeverageSystem_LandingPage/abs_landing/src/layouts/base/Header.astro", void 0);
+  return renderTemplate`${maybeRenderHead()}<header class="bg-white shadow-sm sticky top-0 z-50 w-full"> <div class="max-w-7xl mx-auto px-4 h-16 flex items-center justify-between"> <!-- Logo --> <a href="/" class="flex items-center gap-2"> <p class="font-bold text-3xl text-[#68E0DF]">${BRAND.name}</p> </a> <!-- Desktop Navigation --> <nav class="hidden md:block"> ${renderComponent($$result, "Navigation", $$Navigation, {})} </nav> <!-- Desktop Contact --> <div class=""> ${renderComponent($$result, "Contact", $$Contact, {})} </div> <!-- Mobile Hamburger Button --> <button id="mobile-menu-button" class="md:hidden flex items-center justify-center w-8 h-8" aria-label="Toggle menu"> <svg class="w-6 h-6 text-gray-700" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"> <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"></path> </svg> </button> </div> <!-- Mobile Menu Content --> <div id="mobile-menu" class="md:hidden hidden px-4 py-4 bg-white border-t border-gray-200 transition-all duration-300"> <div class="flex-col ga"> ${renderComponent($$result, "Navigation", $$Navigation, {})} </div> </div> </header> ${renderScript($$result, "D:/Hackathon_Journey/AutomaticBeverageSystem_LandingPage/abs_landing/src/layouts/base/Header.astro?astro&type=script&index=0&lang.ts")}`;
+}, "D:/Hackathon_Journey/AutomaticBeverageSystem_LandingPage/abs_landing/src/layouts/base/Header.astro", void 0);
 
 const $$Footer = createComponent(($$result, $$props, $$slots) => {
   const currentYear = (/* @__PURE__ */ new Date()).getFullYear();
@@ -89,7 +89,7 @@ Copyright © <span class="text-white font-semibold">${currentYear}</span> <span 
 </p> <p class="text-xs">
 Thiết kế bởi 💝 <span class="text-blue-400">${BRAND.name} Tech Team</span> | Phiên bản 2.1.0
 </p> </div> </div> </footer>`;
-}, "C:/Hakathons/AutomaticBeverageSystem_LandingPage/abs_landing/src/layouts/base/Footer.astro", void 0);
+}, "D:/Hackathon_Journey/AutomaticBeverageSystem_LandingPage/abs_landing/src/layouts/base/Footer.astro", void 0);
 
 const $$Astro = createAstro();
 const $$Layout = createComponent(($$result, $$props, $$slots) => {
@@ -97,6 +97,6 @@ const $$Layout = createComponent(($$result, $$props, $$slots) => {
   Astro2.self = $$Layout;
   process.env.NODE_TLS_REJECT_UNAUTHORIZED = "0";
   return renderTemplate`<html lang="en" data-astro-cid-sckkx6r4> <head><meta charset="UTF-8"><meta name="viewport" content="width=device-width"><link rel="icon" type="image/svg+xml" href="/favicon.svg"><meta name="generator"${addAttribute(Astro2.generator, "content")}><title>ABS</title>${renderHead()}</head> <body data-astro-cid-sckkx6r4> ${renderComponent($$result, "Header", $$Header, { "data-astro-cid-sckkx6r4": true })} ${renderSlot($$result, $$slots["default"])} ${renderComponent($$result, "Footer", $$Footer, { "data-astro-cid-sckkx6r4": true })}  </body> </html>`;
-}, "C:/Hakathons/AutomaticBeverageSystem_LandingPage/abs_landing/src/layouts/Layout.astro", void 0);
+}, "D:/Hackathon_Journey/AutomaticBeverageSystem_LandingPage/abs_landing/src/layouts/Layout.astro", void 0);
 
 export { $$Layout as $, BRAND as B };

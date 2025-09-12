@@ -1,14 +1,14 @@
-import { e as createComponent, f as createAstro, k as renderComponent, r as renderTemplate, m as maybeRenderHead, l as renderScript, h as addAttribute } from '../chunks/astro/server_t8S0B2jb.mjs';
+import { e as createComponent, f as createAstro, m as maybeRenderHead, l as renderScript, r as renderTemplate, h as addAttribute, k as renderComponent } from '../chunks/astro/server_t8S0B2jb.mjs';
 import 'kleur/colors';
-import { $ as $$Layout } from '../chunks/Layout_DKdcGuDi.mjs';
-import { A as API_URL } from '../chunks/apiUrl_BZuTOl_W.mjs';
+import 'clsx';
+import { A as API_URL } from '../chunks/apiUrl_BbWCy-kb.mjs';
+import { $ as $$Layout } from '../chunks/Layout_BMQZlUmf.mjs';
 export { renderers } from '../renderers.mjs';
 
 const $$Astro = createAstro();
-const prerender = false;
-const $$Contact = createComponent(async ($$result, $$props, $$slots) => {
+const $$CooperateForm = createComponent(async ($$result, $$props, $$slots) => {
   const Astro2 = $$result.createAstro($$Astro, $$props, $$slots);
-  Astro2.self = $$Contact;
+  Astro2.self = $$CooperateForm;
   let isSubmitted = false;
   let error = null;
   let validationErrors = {};
@@ -45,11 +45,11 @@ const $$Contact = createComponent(async ($$result, $$props, $$slots) => {
       }
     }
   }
-  return renderTemplate`${renderComponent($$result, "Layout", $$Layout, {}, { "default": async ($$result2) => renderTemplate` ${maybeRenderHead()}<section class="min-h-screen bg-gradient-to-br from-cyan-50 via-blue-50 to-cyan-100 py-12 px-4"> <div class="max-w-4xl mx-auto"> <!-- Header Section --> <div class="text-center mb-12"> <div class="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-r from-cyan-500 to-blue-600 rounded-full mb-6"> <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"> <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"></path> </svg> </div> <h1 class="text-4xl md:text-5xl font-bold bg-gradient-to-r from-cyan-600 to-blue-600 bg-clip-text text-transparent mb-4">
+  return renderTemplate`${maybeRenderHead()}<section class="min-h-screen bg-gradient-to-br from-cyan-50 via-blue-50 to-cyan-100 py-12 px-4"> <div class="max-w-4xl mx-auto"> <!-- Header Section --> <div class="text-center mb-12"> <div class="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-r from-cyan-500 to-blue-600 rounded-full mb-6"> <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"> <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"></path> </svg> </div> <h1 class="text-4xl md:text-5xl font-bold bg-gradient-to-r from-cyan-600 to-blue-600 bg-clip-text text-transparent mb-4">
 Liên hệ hợp tác
 </h1> <p class="text-lg text-gray-600 max-w-2xl mx-auto">
 Hãy để lại thông tin chi tiết để chúng tôi có thể tư vấn và hỗ trợ bạn
-          một cách tốt nhất
+        một cách tốt nhất
 </p> </div> <div class="grid lg:grid-cols-3 gap-12"> <!-- Contact Info Sidebar --> <div class="lg:col-span-1 space-y-6"> <div class="bg-white/80 backdrop-blur-sm rounded-2xl p-6 shadow-xl border border-cyan-100"> <h3 class="text-xl font-semibold text-gray-800 mb-4 flex items-center"> <svg class="w-5 h-5 text-cyan-600 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"> <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path> </svg>
 Thông tin liên hệ
 </h3> <div class="space-y-3 text-gray-600"> <div class="flex items-center"> <svg class="w-4 h-4 text-cyan-500 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"> <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path> </svg>
@@ -68,7 +68,7 @@ Giải pháp tối ưu
 Gửi yêu cầu thành công!
 </h3> <p class="text-gray-600 mb-8">
 Cảm ơn bạn đã liên hệ với chúng tôi. Chúng tôi sẽ phản hồi
-                    trong vòng 24 giờ tới.
+                  trong vòng 24 giờ tới.
 </p> <button onclick="window.location.reload()" class="bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-600 hover:to-blue-700 text-white px-8 py-3 rounded-xl font-medium transition-all duration-300 transform hover:scale-105">
 Gửi yêu cầu khác
 </button> </div>` : renderTemplate`<form method="POST" class="space-y-6" id="contactForm"> ${error && renderTemplate`<div class="bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded-lg flex items-center"> <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20"> <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z"></path> </svg> ${error} </div>`} <div class="grid md:grid-cols-2 gap-6"> <div> <label class="block text-sm font-medium text-gray-700 mb-2">
@@ -82,10 +82,15 @@ Nội dung chi tiết
 Gửi yêu cầu
 </button> <button type="reset" class="px-8 py-4 border-2 border-gray-300 text-gray-700 rounded-xl font-medium hover:border-gray-400 hover:bg-gray-50 transition-all duration-300">
 Đặt lại
-</button> </div> </form>`} </div> </div> </div> </div> </section> ${renderScript($$result2, "C:/Hakathons/AutomaticBeverageSystem_LandingPage/abs_landing/src/pages/contact.astro?astro&type=script&index=0&lang.ts")} ` })}`;
-}, "C:/Hakathons/AutomaticBeverageSystem_LandingPage/abs_landing/src/pages/contact.astro", void 0);
+</button> </div> </form>`} </div> </div> </div> </div> </section> ${renderScript($$result, "D:/Hackathon_Journey/AutomaticBeverageSystem_LandingPage/abs_landing/src/components/contact/CooperateForm.astro?astro&type=script&index=0&lang.ts")}`;
+}, "D:/Hackathon_Journey/AutomaticBeverageSystem_LandingPage/abs_landing/src/components/contact/CooperateForm.astro", void 0);
 
-const $$file = "C:/Hakathons/AutomaticBeverageSystem_LandingPage/abs_landing/src/pages/contact.astro";
+const prerender = false;
+const $$Contact = createComponent(($$result, $$props, $$slots) => {
+  return renderTemplate`${renderComponent($$result, "Layout", $$Layout, {}, { "default": ($$result2) => renderTemplate` ${renderComponent($$result2, "CooperateForm", $$CooperateForm, { "client:load": true, "client:component-hydration": "load", "client:component-path": "@components/contact/CooperateForm.astro", "client:component-export": "default" })} ` })}`;
+}, "D:/Hackathon_Journey/AutomaticBeverageSystem_LandingPage/abs_landing/src/pages/contact.astro", void 0);
+
+const $$file = "D:/Hackathon_Journey/AutomaticBeverageSystem_LandingPage/abs_landing/src/pages/contact.astro";
 const $$url = "/contact";
 
 const _page = /*#__PURE__*/Object.freeze(/*#__PURE__*/Object.defineProperty({

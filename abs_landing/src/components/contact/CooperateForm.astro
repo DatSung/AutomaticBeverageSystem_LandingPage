@@ -508,65 +508,65 @@ if (Astro.request.method === "POST") {
 </section>
 
 <script>
-  // Character counter for textarea
-  const textarea = document.querySelector('textarea[name="content"]');
-  const charCount = document.getElementById("charCount");
+  //   // Character counter for textarea
+  //   const textarea = document.querySelector('textarea[name="content"]');
+  //   const charCount = document.getElementById("charCount");
 
-  if (textarea && charCount) {
-    textarea.addEventListener("input", function () {
-      charCount.textContent = this.value.length;
-    });
-  }
+  //   if (textarea && charCount) {
+  //     textarea.addEventListener("input", function () {
+  //       charCount.textContent = this.value.length;
+  //     });
+  //   }
 
-  // Form loading state
-  const form = document.getElementById("contactForm");
-  const submitBtn = document.getElementById("submitBtn");
+  //   // Form loading state
+  //   const form = document.getElementById("contactForm");
+  //   const submitBtn = document.getElementById("submitBtn");
 
-  if (form && submitBtn) {
-    form.addEventListener("submit", function () {
-      submitBtn.innerHTML = `
-          <svg class="animate-spin w-5 h-5 mr-2" fill="none" viewBox="0 0 24 24">
-            <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
-            <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
-          </svg>
-          Đang gửi...
-        `;
-      submitBtn.disabled = true;
-    });
-  }
+  //   if (form && submitBtn) {
+  //     form.addEventListener("submit", function () {
+  //       submitBtn.innerHTML = `
+  //           <svg class="animate-spin w-5 h-5 mr-2" fill="none" viewBox="0 0 24 24">
+  //             <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+  //             <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+  //           </svg>
+  //           Đang gửi...
+  //         `;
+  //       submitBtn.disabled = true;
+  //     });
+  //   }
 
-  // Real-time validation
-  const inputs = document.querySelectorAll("input[required], select[required]");
-  inputs.forEach((input) => {
-    input.addEventListener("blur", function () {
-      validateField(this);
-    });
+  //   // Real-time validation
+  //   const inputs = document.querySelectorAll("input[required], select[required]");
+  //   inputs.forEach((input) => {
+  //     input.addEventListener("blur", function () {
+  //       validateField(this);
+  //     });
 
-    input.addEventListener("input", function () {
-      if (this.classList.contains("border-red-300")) {
-        validateField(this);
-      }
-    });
-  });
+  //     input.addEventListener("input", function () {
+  //       if (this.classList.contains("border-red-300")) {
+  //         validateField(this);
+  //       }
+  //     });
+  //   });
 
-  function validateField(field) {
-    const value = field.value.trim();
-    let isValid = true;
+  //   function validateField(field) {
+  //     const value = field.value.trim();
+  //     let isValid = true;
 
-    if (field.name === "email" && value) {
-      isValid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
-    } else if (field.name === "phone" && value) {
-      isValid = /^[0-9+\-\s()]{10,15}$/.test(value);
-    } else if (field.required) {
-      isValid = value.length > 0;
-    }
+  //     if (field.name === "email" && value) {
+  //       isValid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
+  //     } else if (field.name === "phone" && value) {
+  //       isValid = /^[0-9+\-\s()]{10,15}$/.test(value);
+  //     } else if (field.required) {
+  //       isValid = value.length > 0;
+  //     }
 
-    if (isValid) {
-      field.classList.remove("border-red-300", "bg-red-50");
-      field.classList.add("border-green-300", "bg-green-50");
-    } else {
-      field.classList.remove("border-green-300", "bg-green-50");
-      field.classList.add("border-red-300", "bg-red-50");
-    }
-  }
+  //     if (isValid) {
+  //       field.classList.remove("border-red-300", "bg-red-50");
+  //       field.classList.add("border-green-300", "bg-green-50");
+  //     } else {
+  //       field.classList.remove("border-green-300", "bg-green-50");
+  //       field.classList.add("border-red-300", "bg-red-50");
+  //     }
+  //   }
 </script>
