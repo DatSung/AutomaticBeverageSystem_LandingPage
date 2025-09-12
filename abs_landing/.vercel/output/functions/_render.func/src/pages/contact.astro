@@ -4,30 +4,14 @@ import { API_URL } from "@constants/apiUrl";
 import { string } from "astro:schema";
 export const prerender = false;
 
-interface FormDataType {
-  name: string;
-  email: string;
-  phone: string;
-  time: string;
-  content: string;
-}
-
-interface ValidationErrors {
-  name?: string;
-  email?: string;
-  phone?: string;
-  time?: string;
-  content?: string;
-}
-
 let isSubmitted = false;
 let error = null;
-let validationErrors: ValidationErrors = {};
+let validationErrors = {};
 
 if (Astro.request.method === "POST") {
   const body = await Astro.request.formData();
 
-  const formData: FormDataType = {
+  const formData = {
     name: (body.get("name") as string) ?? "",
     email: (body.get("email") as string) ?? "",
     phone: (body.get("phone") as string) ?? "",
